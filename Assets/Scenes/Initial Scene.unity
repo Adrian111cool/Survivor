@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee9557eb92dfb124995b36765a0d3cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  valor1: 99
+  valor1: 25
   valor2: 25
   condition: 0
 --- !u!1 &1191177000
