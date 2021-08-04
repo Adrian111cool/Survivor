@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Lists : MonoBehaviour
 {
-<<<<<<< HEAD
     public List<int> list = new List<int>(5);
 
     void Awake()
@@ -38,8 +37,7 @@ public class Lists : MonoBehaviour
         //print("Elemento a borrar según su index es: " + list[tempLastIndex]);
         //list.RemoveAt(tempLastIndex);
         //print("Tamaño de una lista: " + list.Count);
-=======
-    public List<int> list = new List<int>();
+    }
 
     void Start()
     {
@@ -72,7 +70,6 @@ public class Lists : MonoBehaviour
         print("Elemento a borrar según su index es: " + list[tempLastIndex]);
         list.RemoveAt(tempLastIndex);
         print("Tamaño de una lista: " + list.Count);
->>>>>>> cbf8a23d502c034e3b9f0dac3d8f849c301aedc0
     }
 
     // Update is called once per frame
