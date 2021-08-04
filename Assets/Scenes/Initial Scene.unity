@@ -133,14 +133,8 @@ GameObject:
   - component: {fileID: 286680540}
   - component: {fileID: 286680542}
   - component: {fileID: 286680543}
-<<<<<<< HEAD
-  - component: {fileID: 286680546}
-  - component: {fileID: 286680545}
-  - component: {fileID: 286680544}
-=======
   - component: {fileID: 286680544}
   - component: {fileID: 286680545}
->>>>>>> cbf8a23d502c034e3b9f0dac3d8f849c301aedc0
   m_Layer: 0
   m_Name: Test
   m_TagString: Untagged
@@ -212,32 +206,6 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286680539}
-<<<<<<< HEAD
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0073c42c7309b79449c80f2669a682da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  array: 0000000000000000000000000000000000000000
-  list: 
-  arrayClass: {fileID: 286680545}
-  listClass: {fileID: 286680546}
---- !u!114 &286680545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 286680539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 736338430e2178242a20c9010c2594aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  variables2: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
-  index: 0
---- !u!114 &286680546
-=======
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02531c3381f443245a6dd89dcf14bc25, type: 3}
@@ -246,7 +214,6 @@ MonoBehaviour:
   variables2: e7030000000000000000000000000000000000000000000000000000000000000000000019fcffff
   index: 0
 --- !u!114 &286680545
->>>>>>> cbf8a23d502c034e3b9f0dac3d8f849c301aedc0
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -255,11 +222,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 286680539}
   m_Enabled: 1
   m_EditorHideFlags: 0
-<<<<<<< HEAD
-  m_Script: {fileID: 11500000, guid: 94f066081415a1f43ba3fa697b28cb5a, type: 3}
-=======
   m_Script: {fileID: 11500000, guid: 61b987518121e394086f157425d6232f, type: 3}
->>>>>>> cbf8a23d502c034e3b9f0dac3d8f849c301aedc0
   m_Name: 
   m_EditorClassIdentifier: 
   list: 
