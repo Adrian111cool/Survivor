@@ -5,24 +5,30 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody2D rigidBody;
-    public int direction;
-    public float moveSpeed;
-    public Vector2 inputValue;
+    public Rigidbody2D rigidBody; // Es la variable que luego de enlazarse con el componente
+                                  // Maneja las físicas de nuestro player.
+    public int direction; // Es la dirección a la que se está moviendo nuestro player
+    public float moveSpeed; // Es la velocidad a la que se mueve nuestro player
+    public Vector2 inputValue; // Es para ver el input que estamos haciendo cuando presionamos los botones
+                               // Registrados en Input.GetAxis o Input.GetAxisRaw
 
     void Start()
     {
+        // Enlazar la variable rigidBody con el componente de mi player, RigidBody2D
         rigidBody = GetComponent<Rigidbody2D>();
     }
 
 
     void Update()
     {
+
+        // Llamar a la función MovementInput, donde mando el input a mi variable inputValue
         MovementInput();
     }
 
     private void FixedUpdate()
     {
+        // Mover a mi player según el input registrado en la función MovementInput.
         MovementAction();
     }
 
@@ -39,13 +45,56 @@ public class PlayerController : MonoBehaviour
 
     }
 
+
     void MovementInput()
     {
+        /*
+         new Vector2(x,y) ->
+         x (eje horizontal), le pasamos los valores que se obtienen al presionar un botón y multiplicando el valor de este por moveSpeed:
+            Input.GetAxisRaw("Horizontal")*moveSpeed
+        *NOTA: InputGetAxisRaw -> Si presiono alguno de los botónes registrados, me puede dar como valores -1 (a la izquierda) y 1 (a la derecha), y si no presiono nada 0
+         
+        y (eje vertical), es pasar la velocidad vertical de mi objeto, y esto se puede ver pensando en que le pasamos la gravedad.
+
+        rigidBody.velocity.y -> pasar la gravedad.
+         
+         */
         inputValue = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, rigidBody.velocity.y);
+
+        if (inputValue.x > 0)
+        {
+            direction = 1;
+            FlipSprite();
+        }
+        else if (inputValue.x < 0)
+        {
+            direction = -1;
+            FlipSprite();
+        }
+        //else
+        //    direction = 0;
     }
 
     void MovementAction()
     {
+        //Aquí se pasan los valores que registramos en MovementInput, y se mandan al rigidbody, para que se mueva.
         rigidBody.velocity = inputValue;
+    }
+
+    void FlipSprite()
+    {
+        /*
+        //Forma A
+        float rotation = 0;
+        if (direction == 1)
+            rotation = 180;
+        else
+            rotation = 0;
+
+        //Forma B - Operadores Terciarios
+        direction==1?180f:0;
+
+        */
+        transform.eulerAngles = new Vector3(0, direction == 1 ? 0f : 180, 0);
     }
 }
