@@ -319,7 +319,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1191177000}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1659175754}
@@ -1401,6 +1401,8 @@ MonoBehaviour:
   rigidBody: {fileID: 0}
   direction: 0
   moveSpeed: 2.5
+  jumpForce: 5
+  jumpInputOn: 0
   inputValue: {x: 0, y: 0}
 --- !u!1 &1780129660
 GameObject:
@@ -1574,7 +1576,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2053796861}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3105403, y: 1.4462473, z: 0}
+  m_LocalPosition: {x: 1.33, y: 0.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
