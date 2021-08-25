@@ -16,8 +16,14 @@ public class PlayerController : MonoBehaviour
     public float jumpForce; // La potencia del salto
     public bool jumpInputOn; // He presionado el botón de salto?
 
-    public Vector2 inputValue; // Es para ver el input que estamos haciendo cuando presionamos los botones
-                               // Registrados en Input.GetAxis o Input.GetAxisRaw
+    [Header("Ground Check Properties")]
+    public Transform groundCheckPoint; //Punto para reconocer donde están los pies y ver el suelo.
+    public float radius; //Radio para extender el rango del punto, y poder reconocer el suelo.
+    public LayerMask whatIsGround; //Sirve para reconocer, ¿qué es tierra?
+    public bool isGrounded; //Se vuelve true, en caso se haya tocado el suel, caso contrario, se vuelve false, puesto que estas en el aire.
+
+    Vector2 inputValue; // Es para ver el input que estamos haciendo cuando presionamos los botones
+                        // Registrados en Input.GetAxis o Input.GetAxisRaw
 
     void Start()
     {
@@ -31,6 +37,8 @@ public class PlayerController : MonoBehaviour
 
         // Llamar a la función MovementInput, donde mando el input a mi variable inputValue
         MovementInput();
+
+        GroundCheck();
 
         //Si se presiona el botón space, se activa la variable jumpInputOn
         if (Input.GetKeyDown(KeyCode.Space))
@@ -103,10 +111,16 @@ public class PlayerController : MonoBehaviour
 
     #region Jump
 
+    void GroundCheck()
+    {
+        isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, radius, whatIsGround);
+    }
+
     void Jump()
     {
         //Aquí se le da una fuerza en el eje y o en el eje vertical.
-        rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
+        if(isGrounded)
+            rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
     }
 
     #endregion
