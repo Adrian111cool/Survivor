@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rigidBody; // Es la variable que luego de enlazarse con el componente
@@ -22,6 +23,9 @@ public class PlayerController : MonoBehaviour
     public LayerMask whatIsGround; //Sirve para reconocer, ¿qué es tierra?
     public bool isGrounded; //Se vuelve true, en caso se haya tocado el suel, caso contrario, se vuelve false, puesto que estas en el aire.
 
+    [Header("Animations")]
+    public Animator animator;
+
     Vector2 inputValue; // Es para ver el input que estamos haciendo cuando presionamos los botones
                         // Registrados en Input.GetAxis o Input.GetAxisRaw
 
@@ -29,6 +33,7 @@ public class PlayerController : MonoBehaviour
     {
         // Enlazar la variable rigidBody con el componente de mi player, RigidBody2D
         rigidBody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
 
@@ -91,14 +96,20 @@ public class PlayerController : MonoBehaviour
         {
             direction = 1;
             FlipSprite();
+            //animator.SetBool("isMoving", true);
         }
         else if (inputValue.x < 0)
         {
             direction = -1;
             FlipSprite();
+            //animator.SetBool("isMoving", true);
         }
         //else
-        //    direction = 0;
+        //{
+        //    animator.SetBool("isMoving", false);
+        //}
+
+        animator.SetBool("isMoving", inputValue.x != 0 ? true : false);
     }
 
     void MovementAction()
@@ -114,6 +125,7 @@ public class PlayerController : MonoBehaviour
     void GroundCheck()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, radius, whatIsGround);
+        animator.SetBool("isNotInGround", !isGrounded);
     }
 
     void Jump()
